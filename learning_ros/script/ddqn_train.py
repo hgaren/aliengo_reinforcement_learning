@@ -23,9 +23,9 @@ from gazebo_msgs.srv import SetModelConfiguration
 
 
 
-rospy.init_node('dqn_aliengo_train_node')
+rospy.init_node('ddqn_aliengo_train_node')
 # True if double dqn , False Standradnt dqn
-ddqn = False
+ddqn = True
 
 def OurModel(input_shape, action_space):
     X_input = Input(input_shape)

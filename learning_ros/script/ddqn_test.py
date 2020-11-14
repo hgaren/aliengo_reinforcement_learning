@@ -23,9 +23,9 @@ from gazebo_msgs.srv import SetModelConfiguration
 
 
 
-rospy.init_node('dqn_aliengo_train_node')
+rospy.init_node('ddqn_aliengo_test_node')
 # True if double dqn , False Standradnt dqn
-ddqn = False
+ddqn = True
 
 def OurModel(input_shape, action_space):
     X_input = Input(input_shape)
@@ -33,13 +33,13 @@ def OurModel(input_shape, action_space):
 
     # 'Dense' is the basic form of a neural network layer
     # Input Layer of state size(4) and Hidden Layer with 512 nodes
-    X = Dense(512, input_shape=input_shape, activation="relu", kernel_initializer='he_uniform')(X)
+    X = Dense(100, input_shape=input_shape, activation="relu", kernel_initializer='he_uniform')(X)
 
     # Hidden layer with 256 nodes
-    X = Dense(256, activation="relu", kernel_initializer='he_uniform')(X)
+    X = Dense(100, activation="relu", kernel_initializer='he_uniform')(X)
     
     # Hidden layer with 64 nodes
-    X = Dense(64, activation="relu", kernel_initializer='he_uniform')(X)
+    X = Dense(100, activation="relu", kernel_initializer='he_uniform')(X)
 
     # Output Layer with # of actions: 2 nodes (left, right)
     X = Dense(action_space, activation="linear", kernel_initializer='he_uniform')(X)
@@ -150,7 +150,7 @@ class DQNAgent:
         # Train the Neural Network with batches
         self.model.fit(state, target, batch_size=self.batch_size, verbose=0)
  
-    def run(self):
+    def test(self):
         # Initialize OpenAI_ROS ENV
         LoadYamlFileParamsTest(rospackage_name="learning_ros", rel_path_from_package_to_file="config", yaml_file_name="aliengo_stand.yaml")
         env = StartOpenAI_ROS_Environment('AliengoStand-v0')
@@ -159,6 +159,8 @@ class DQNAgent:
         time.sleep(3)
         with tf.Session() as sess:
             sess.run(tf.global_variables_initializer())
+            sess.run(tf.global_variables_initializer())
+            saver.restore(sess, 'model_ddqn_test/model_ddqn.ckpt')
             scores = []
             success_num = 0
 
@@ -188,31 +190,10 @@ class DQNAgent:
                     else:
                         state = next_state   
                     self.replay()
-                      #if consectuvely 10 times has high reward end the training
                 scores.append(sum(rewards))
-                if sum(rewards) >=400:
-                    success_num += 1
-                    print("Succes number: " + str(success_num))
-                    if success_num >= 5: #checkpoint
-                        if(ddqn):
-                            saver.save(sess, 'model_ddqn_train/model_ddqn.ckpt')
-                        else:
-                            saver.save(sess, 'model_ddqn_train/model_dqn.ckpt')
-
-                        print('Clear!! Model saved.')
-                    if success_num >= 10:
-                        if(ddqn):
-                            saver.save(sess, 'model_ddqn_train/model_ddqn.ckpt')
-                        else:
-                            saver.save(sess, 'model_ddqn_train/model_dqn.ckpt')                       
-
-                        print('Clear!! Model saved. AND Finished! ')
-                        break
-        
-                else:
-                    success_num = 0
+               
         plt.plot(scores)
         plt.show()        
 if __name__ == "__main__":
     agent = DQNAgent()
-    agent.run()
+    agent.test()
