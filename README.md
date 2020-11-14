@@ -77,7 +77,6 @@ Laikago's default msgs
 
 
 ## How to Train
-
 To train PPO agent in gazebo go to /learning_ws
 * `source devel/setup.bash`
 then go to /learning_ws/src/learning_ros/script and 
@@ -96,9 +95,10 @@ To test learned PPO model
 To test learned DDQN or DQN model
 * `./run_ddqn_test.sh`
 * `./run_dqn_test.sh`
-Note: If you want to see in Gazebo GUI go to aliengo/aliengo_gazebo/launch , open aliengo_empty_world.launch
-change <arg name="gui" default="false"/> to true (we  make this false so that our computer can handle learning process in realtime)
 
+* Note-1: If you want to see in Gazebo GUI go to aliengo/aliengo_gazebo/launch , open aliengo_empty_world.launch
+change <arg name="gui" default="false"/> to true (we  make this false so that our computer can handle learning process in realtime)
+* Note-2: After closing learining agent sometimes gazebo doesnt close properly or Gazebo and ROS related packages might crashed. To resolve this issue downlaod "htop" and SIGKILL gazebo. 
 
 ## Results
 
