@@ -91,3 +91,13 @@ Note: If you want to see in Gazebo GUI go to aliengo/aliengo_gazebo/launch , ope
 change <arg name="gui" default="false"/> to true (we  make this false so that our computer can handle learning process in realtime)
 
 
+## Results
+
+
+
+
+![Alt text](gazebo_rviz_result.png?raw=true "Gazebo Rviz Testing Result (Robot is in Standing-up Position)")
+
+
+
+
