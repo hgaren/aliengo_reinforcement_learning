@@ -13,8 +13,7 @@ import matplotlib.pyplot as plt
 import gym
 import numpy as np
 import tensorflow as tf
-from policy_net import Policy_net
-from ppo import PPOTrain
+from ppo import PPOTrain,Policy_net
 #Open-ai ROS packages
 from openai_ros.openai_ros_common import StartOpenAI_ROS_Environment
 from openai_ros.task_envs.task_commons import LoadYamlFileParamsTest
@@ -42,7 +41,7 @@ def main():
 
     with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
-        saver.restore(sess, 'model_ppo_test/model.ckpt')
+        saver.restore(sess, 'model_test/model_ppo.ckpt')
         obs = env.reset()
         reward = 0
         success_num = 0

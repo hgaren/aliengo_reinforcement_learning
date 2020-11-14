@@ -56,7 +56,7 @@ class DQNAgent:
         self.state_size = 3
         self.action_size = 8
 
-        self.EPISODES = 100000
+        self.EPISODES = 100
         self.memory = deque(maxlen=2000)
         
         self.gamma = 0.95    # discount rate
@@ -159,8 +159,7 @@ class DQNAgent:
         time.sleep(3)
         with tf.Session() as sess:
             sess.run(tf.global_variables_initializer())
-            sess.run(tf.global_variables_initializer())
-            saver.restore(sess, 'model_ddqn_test/model_ddqn.ckpt')
+            saver.restore(sess, 'model_test/model_ddqn.ckpt')
             scores = []
             success_num = 0
 
@@ -171,7 +170,8 @@ class DQNAgent:
                 i = 0
                 rewards = []
                 while  not rospy.is_shutdown():  # until ros is not shutdown                #self.env.render()
-                    action = self.act(state)
+                    # height prob is chosen as action
+                    action = np.argmax(self.model.predict(state))
                     next_state, reward, done, _ = env.step(action)
                     time.sleep(0.01)
 

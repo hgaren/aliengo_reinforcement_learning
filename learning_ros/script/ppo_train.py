@@ -18,8 +18,7 @@ import matplotlib.pyplot as plt
 import gym
 import numpy as np
 import tensorflow as tf
-from policy_net import Policy_net
-from ppo import PPOTrain
+from ppo import PPOTrain,Policy_net
 # Openai and ROS packages 
 from openai_ros.openai_ros_common import StartOpenAI_ROS_Environment
 from openai_ros.task_envs.task_commons import LoadYamlFileParamsTest
@@ -84,10 +83,10 @@ def main():
                 success_num += 1
                 print("Succes number: " + str(success_num))
                 if success_num >= 5:
-                    saver.save(sess, 'model_ppo_train/model.ckpt')
+                    saver.save(sess, 'model_train/model_ppo.ckpt')
                     print('Clear!! Model saved.')
                 if success_num >= 10:
-                    saver.save(sess, 'model_ppo_train/model.ckpt')
+                    saver.save(sess, 'model_train/model_ppo.ckpt')
                     print('Finished! ')
                     break
     

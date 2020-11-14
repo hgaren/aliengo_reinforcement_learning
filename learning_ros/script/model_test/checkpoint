@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/asoro/current_hw/deep_learning/learning_ws/model/model_ppo.ckpt"
+all_model_checkpoint_paths: "/home/asoro/current_hw/deep_learning/learning_ws/model/model_ppo.ckpt"

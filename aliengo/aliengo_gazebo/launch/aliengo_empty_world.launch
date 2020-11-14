@@ -3,7 +3,7 @@
 <launch>
     <arg name="paused" default="true"/>
     <arg name="use_sim_time" default="true"/>
-    <arg name="gui" default="false"/>
+    <arg name="gui" default="true"/> <!--MAKE THIS TRUE FOR GUI VISUALIZATION -->
     <arg name="headless" default="false"/>
     <arg name="debug" default="false"/>
     <!-- Debug mode will hung up the robot, use "true" or "false" to switch it. -->

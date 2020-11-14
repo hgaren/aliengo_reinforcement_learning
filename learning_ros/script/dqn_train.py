@@ -33,13 +33,13 @@ def OurModel(input_shape, action_space):
 
     # 'Dense' is the basic form of a neural network layer
     # Input Layer of state size(4) and Hidden Layer with 512 nodes
-    X = Dense(512, input_shape=input_shape, activation="relu", kernel_initializer='he_uniform')(X)
+    X = Dense(100, input_shape=input_shape, activation="relu", kernel_initializer='he_uniform')(X)
 
     # Hidden layer with 256 nodes
-    X = Dense(256, activation="relu", kernel_initializer='he_uniform')(X)
+    X = Dense(100, activation="relu", kernel_initializer='he_uniform')(X)
     
     # Hidden layer with 64 nodes
-    X = Dense(64, activation="relu", kernel_initializer='he_uniform')(X)
+    X = Dense(100, activation="relu", kernel_initializer='he_uniform')(X)
 
     # Output Layer with # of actions: 2 nodes (left, right)
     X = Dense(action_space, activation="linear", kernel_initializer='he_uniform')(X)
@@ -195,19 +195,20 @@ class DQNAgent:
                     print("Succes number: " + str(success_num))
                     if success_num >= 5: #checkpoint
                         if(ddqn):
-                            saver.save(sess, 'model_ddqn_train/model_ddqn.ckpt')
+                            saver.save(sess, 'model_train/model_ddqn.ckpt')
                         else:
-                            saver.save(sess, 'model_ddqn_train/model_dqn.ckpt')
+                            saver.save(sess, 'model_train/model_dqn.ckpt')
 
                         print('Clear!! Model saved.')
                     if success_num >= 10:
                         if(ddqn):
-                            saver.save(sess, 'model_ddqn_train/model_ddqn.ckpt')
+                            saver.save(sess, 'model_train/model_ddqn.ckpt')
                         else:
-                            saver.save(sess, 'model_ddqn_train/model_dqn.ckpt')                       
+                            saver.save(sess, 'model_train/model_dqn.ckpt')                       
 
                         print('Clear!! Model saved. AND Finished! ')
                         break
+        
         
                 else:
                     success_num = 0
