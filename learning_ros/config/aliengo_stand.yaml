@@ -1,0 +1,16 @@
+aliengo: #namespace
+    n_actions: 8 # We have 8 actions
+    n_observations: 3 # We have 3 different observations X,Z,Pitch
+    ros_ws_abspath: "/home/hgaren/current_hw/learning_ws"
+  
+    desired_pose:
+      x: -0.4
+      y: 0.0
+      z: 0.6 #0.6
+      pitch: -1.0
+
+    time_out: 15 # time out in seconds
+
+    
+  
+   
