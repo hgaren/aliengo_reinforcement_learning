@@ -1,16 +1,22 @@
 # Instructions: Aliengo Standing-up Task using Reinforcement Learning, Integration of ROS-Gazebo, Openai and Tensoflow.
- 
 
-https://bitbucket.org/theconstructcore/openai_ros.git
+
+* Openai-Ros-Gazebo is implemented from 
+https://bitbucket.org/theconstructcore/openai_ros.git 
+* PPO RL trainig is implemented from 
+https://github.com/nav74neet/ppo_gazebo_tf
+* DQN and DDQN is implemented from
 https://github.com/pythonlessons/Reinforcement_Learning/blob/master/02_CartPole-reinforcement-learning_DDQN/Cartpole_DDQN_TF2.py
+* Aliengo Gazebo is implemented from 
+https://github.com/unitreerobotics/aliengo_ros and https://github.com/unitreerobotics/laikago_ros
 
 
 ## Dependencies:
 Requirment:
-Ubuntu 16.04 or 18.04
-gym
-python 3.6 or above
-tensoflow 1.4 or above
+* Ubuntu 16.04 or 18.04
+* gym
+*  python 3.6 or above
+*  tensoflow 1.4 or above
 ```
 sudo apt install python3-pip
 pip3 install gym
@@ -22,7 +28,10 @@ sudo apt-get install python3-git
 ROS kinetic  or melodic
 Gazebo8 or above
 ```
-ros-melodic-gazebo8-ros ros-melodic-gazebo8-ros-control ros-melodic-gazebo8-ros-pkgs ros-melodic-gazebo8-ros-dev
+ros-melodic-gazebo8-ros 
+ros-melodic-gazebo8-ros-control
+ros-melodic-gazebo8-ros-pkgs
+ros-melodic-gazebo8-ros-dev
 ```
 ROS related packages for simulation
 ```
@@ -75,18 +84,18 @@ then go to /learning_ws/src/learning_ros/script and
 * `python3 ppo_train_aliengo.py`
 OR 
 go to /learning_ws and 
-* `./ run_ppo_training.sh`
+* `./run_ppo_train.sh`
 
 Similarly to train with DDQN (double deep Q network) or DQN (you can change by  ddqn = true to false)
-* `./ run_ddqn_training.sh`
-
+* `./run_ddqn_train.sh`
+* `./run_dqn_train.sh`
 ## How to Test
 go to /learning_ws and 
 To test learned PPO model
-* `./ run_ppo_test.sh`
-To test learned DDQN model
-* `./ run_ddqn_test.sh`
-
+* `./run_ppo_test.sh`
+To test learned DDQN or DQN model
+* `./run_ddqn_test.sh`
+* `./run_dqn_test.sh`
 Note: If you want to see in Gazebo GUI go to aliengo/aliengo_gazebo/launch , open aliengo_empty_world.launch
 change <arg name="gui" default="false"/> to true (we  make this false so that our computer can handle learning process in realtime)
 
