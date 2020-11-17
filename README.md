@@ -130,7 +130,7 @@ PPO-Clip Testing
 
 Robot is able to stand up and  but directly reaches terminal state instead of staying in stand-up position 
 Double-DQN Testing
-![Alt text](docs/testing_ddqn.gif?raw=true "Double-DQN Testing")
+![Screenshot](docs/testing_ddqn.gif?raw=true "Double-DQN Testing")
 
 
 
