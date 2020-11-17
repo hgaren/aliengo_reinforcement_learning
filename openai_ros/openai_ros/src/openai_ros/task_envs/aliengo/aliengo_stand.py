@@ -229,7 +229,7 @@ class AliengoStandEnv(aliengo_env.AliengoEnv):
             #if robot is in standing up position
             if(self.is_robot_front_leg_up()):
                 print("FRONT LEG IS UP!!!")
-                reward +=10 #30
+                reward +=10 #10
                 is_leg_up = True
             #if achiving goal distance and height is decreasing 
             if distance_difference < 0.00 and height_difference < 0.00: #0.0

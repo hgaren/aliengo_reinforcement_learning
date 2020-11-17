@@ -111,7 +111,7 @@ class PPOTrain:
 
 #PPO's Neural Network 
 class Policy_net:
-    def __init__(self, name: str, temp=0.1, ob_space = 4,act_space = 2):
+    def __init__(self, name: str, temp=0.1, ob_space = 3,act_space = 2):
         """
         :param name: string
         :param env: gym env
@@ -123,14 +123,14 @@ class Policy_net:
             self.obs = tf.placeholder(dtype=tf.float32, shape=[None, ob_space], name='obs')
 
             with tf.variable_scope('policy_net'):
-                layer_1 = tf.layers.dense(inputs=self.obs, units=20, activation=tf.tanh)
-                layer_2 = tf.layers.dense(inputs=layer_1, units=20, activation=tf.tanh)
+                layer_1 = tf.layers.dense(inputs=self.obs, units=100, activation=tf.tanh)
+                layer_2 = tf.layers.dense(inputs=layer_1, units=100, activation=tf.tanh)
                 layer_3 = tf.layers.dense(inputs=layer_2, units=act_space, activation=tf.tanh)
                 self.act_probs = tf.layers.dense(inputs=tf.divide(layer_3, temp), units=act_space, activation=tf.nn.softmax)
 
             with tf.variable_scope('value_net'):
-                layer_1 = tf.layers.dense(inputs=self.obs, units=20, activation=tf.tanh)
-                layer_2 = tf.layers.dense(inputs=layer_1, units=20, activation=tf.tanh)
+                layer_1 = tf.layers.dense(inputs=self.obs, units=100, activation=tf.tanh)
+                layer_2 = tf.layers.dense(inputs=layer_1, units=100, activation=tf.tanh)
                 self.v_preds = tf.layers.dense(inputs=layer_2, units=1, activation=None)
 
             self.act_stochastic = tf.multinomial(tf.log(self.act_probs), num_samples=1)

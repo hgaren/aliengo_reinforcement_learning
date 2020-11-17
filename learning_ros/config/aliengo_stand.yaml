@@ -9,7 +9,7 @@ aliengo: #namespace
       z: 0.6 #0.6
       pitch: -1.0
 
-    time_out: 15 # time out in seconds
+    time_out: 10 # time out in seconds
 
     
   

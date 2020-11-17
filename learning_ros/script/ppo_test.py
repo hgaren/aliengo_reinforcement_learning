@@ -41,7 +41,7 @@ def main():
 
     with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
-        saver.restore(sess, 'model_test/model_ppo.ckpt')
+        saver.restore(sess, 'model_train/model_ppo.ckpt')
         obs = env.reset()
         reward = 0
         success_num = 0
