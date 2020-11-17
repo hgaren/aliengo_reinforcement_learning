@@ -125,7 +125,7 @@ Gazebo and Rviz visulization of Desired Stand-up Behaviour
 
 ### Training
 Double DQN and PPO-Clip is trained around 260 episodes. Learning terminates after 10 consecutive high reward.
-![](docs/train_graphs.png?raw=true )
+![](docs/training_graphs.png?raw=true )
 * Training Reward-Episode Graphs: (Left) PPO-Clip Agent, (Right)DDQN Agent
 
 ![](docs/train_ppo.gif?raw=true )
