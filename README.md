@@ -121,14 +121,16 @@ Double DQN and PPO-Clip is trained around 260 episodes. Learning terminates afte
 ![Alt text](docs/train_ppo.gif?raw=true "PPO-Clip Training")
 ### Testing
 Double DQN and PPO-Clip is tested in 100 Episodes. PPO-CLip succes rate 94/100, Double DQN score 88/100
-
+Testing Reward-Episode Graphs: (Left) PPO-Clip Agent, (Right)DDQN Agent
 ![Alt text](docs/testing_graphs.png?raw=true "Testing Reward-Episode Graphs: (Left) PPO-Clip Agent, (Right)DDQN Agent")
 
 Robot is able to stand up and stay in stand up position
+PPO-Clip Testing
 ![Alt text](docs/testing_ppo.gif?raw=true "PPO-Clip Testing")
 
 Robot is able to stand up and  but directly reaches terminal state instead of staying in stand-up position 
-![Alt text](docs/gazebo_rviz_result.png?raw=true "Double-DQN Testing")
+Double-DQN Testing
+![Alt text](docs/testing_ddqn.gif?raw=true "Double-DQN Testing")
 
 
 
