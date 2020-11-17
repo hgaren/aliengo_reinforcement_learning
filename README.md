@@ -16,8 +16,8 @@ https://github.com/unitreerobotics/aliengo_ros and https://github.com/unitreerob
 Requirment:
 * Ubuntu 16.04 or 18.04
 * gym
-*  python 3.6 or above
-*  tensoflow 1.4 or above
+* python 3.6 or above
+* tensoflow 1.14 or above
 ```
 sudo apt install python3-pip
 pip3 install gym
@@ -43,9 +43,13 @@ sudo apt-get install ros-melodic-controller-manager ros-melodic-ros-control ros-
 ## Building ROS workspace:
 
 make a workspace folder (for example: learning_ws) and copy src file into here.
-* `cd ~/learning_ws`
+* `mkdir ~/learning_ws/src`
+* `cd ~/learning_ws/src`
+
+compile
 * `catkin_make`
-to make sure all ros related packages are installed, go to learning_ws
+
+if compiling gives error, to make sure all ros related packages are installed, go to learning_ws
 * `source devel/setup.bash`
 * `rosdep install openai_ros`<br>
 * `rosdep install learning_ros`<br>
@@ -82,14 +86,18 @@ Laikago's default msgs
 ## How to Train
 Open first terminal;
 * `roscore`
+
+
 Open second terminal;
 go to /learning_ws and 
 To train PPO agent in gazebo 
 * `source devel/setup.bash`
 then go to /learning_ws/src/learning_ros/script and 
 * `python3 ppo_train_aliengo.py`
+
 OR 
 go to /learning_ws and 
+
 * `./run_ppo_train.sh`
 
 Similarly to train with DDQN (double deep Q network)
@@ -98,13 +106,13 @@ Similarly to train with DDQN (double deep Q network)
 ## How to Test
 Open first terminal;
 * `roscore`
+
 Open second terminal;
 go to /learning_ws and 
 To test learned PPO model
 * `./run_ppo_test.sh`
 To test learned DDQN or DQN model
 * `./run_ddqn_test.sh`
-* `./run_dqn_test.sh`
 
 * Note-1: If you want to see in Gazebo GUI go to aliengo/aliengo_gazebo/launch , open aliengo_empty_world.launch
 change <arg name="gui" default="false"/> to true (we  make this false so that our computer can handle learning process in realtime)
