@@ -56,8 +56,10 @@ to make sure all ros related packages are installed, go to learning_ws
 * change ros_ws_abspath with your worksapce path
 /home/asoro/current_hw/deep_learning/learning_ws --> /home/your_ros_workspace
 you can aslo change goal paramaters such as desired goal X, Z and pitch angle. 
+* Go to main branch and make executable all .sh files
 * Go to aliengo/aliengo_gazebo/script and make executable sim_odometry_converter.py
 * Go to learning_ros/script and make executable all python files
+
 
 ### openai_ros
 Ros-gazebo communication to open-ai gym environment. 
@@ -77,7 +79,11 @@ Laikago's default msgs
 
 
 ## How to Train
-To train PPO agent in gazebo go to /learning_ws
+Open first terminal;
+* `roscore`
+Open second terminal;
+go to /learning_ws and 
+To train PPO agent in gazebo 
 * `source devel/setup.bash`
 then go to /learning_ws/src/learning_ros/script and 
 * `python3 ppo_train_aliengo.py`
@@ -89,6 +95,9 @@ Similarly to train with DDQN (double deep Q network) or DQN (you can change by  
 * `./run_ddqn_train.sh`
 * `./run_dqn_train.sh`
 ## How to Test
+Open first terminal;
+* `roscore`
+Open second terminal;
 go to /learning_ws and 
 To test learned PPO model
 * `./run_ppo_test.sh`
@@ -101,11 +110,27 @@ change <arg name="gui" default="false"/> to true (we  make this false so that ou
 * Note-2: After closing learining agent sometimes gazebo doesnt close properly or Gazebo and ROS related packages might crashed. To resolve this issue downlaod "htop" and SIGKILL gazebo. 
 
 ## Results
+Gazebo and Rviz visulization of Desired Stand-up Behaviour
+![Alt text](docs/gazebo_rviz_result.png?raw=true "Snapshots of Standing-up Position: (Left) Gazebo Physic Simulator (Right) Rviz Sensor-Reward Visualization where green arrow indicate robot reached the goal pose , red cube indicate 1st reward, blue cube 2nd rewardand green cube 3th reward")
+###Training
+Double DQN and PPO-Clip is trained around 260 episodes. Learning terminates after 10 consecutive high reward.
+
+![Alt text](docs/train_graphs.png?raw=true "Training Reward-Episode Graphs: (Left) PPO-Clip Agent, (Right)DDQN Agent")
 
 
+![Alt text](docs/train_ppo.gif?raw=true "PPO-Clip Training")
+###Testing
+Double DQN and PPO-Clip is tested in 100 Episodes. PPO-CLip succes rate 94/100, Double DQN score 88/100
+
+![Alt text](docs/testing_graphs.png?raw=true "Testing Reward-Episode Graphs: (Left) PPO-Clip Agent, (Right)DDQN Agent")
+
+Robot is able to stand up and stay in stand up position
+![Alt text](docs/testing_ppo.gif?raw=true "PPO-Clip Testing")
+
+Robot is able to stand up and  but directly reaches terminal state instead of staying in stand-up position 
+![Alt text](docs/gazebo_rviz_result.png?raw=true "Double-DQN Testing")
 
 
-![Alt text](gazebo_rviz_result.png?raw=true "Gazebo Rviz Testing Result (Robot is in Standing-up Position)")
 
 
 

@@ -1,7 +1,7 @@
 aliengo: #namespace
     n_actions: 8 # We have 8 actions
     n_observations: 3 # We have 3 different observations X,Z,Pitch
-    ros_ws_abspath: "/home/hgaren/current_hw/learning_ws"
+    ros_ws_abspath: "/home/asoro/current_hw/learning_ws"
   
     desired_pose:
       x: -0.4
