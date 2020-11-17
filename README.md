@@ -1,5 +1,6 @@
 # Instructions: Aliengo Standing-up Task using Reinforcement Learning, Integration of ROS-Gazebo, Openai and Tensoflow.
 
+Four legged robot Aliengo is implemented in simulation environment to teach standing-up task by using Deep Reinforcement learning.
 
 * Openai-Ros-Gazebo is implemented from 
 https://bitbucket.org/theconstructcore/openai_ros.git 
@@ -7,7 +8,7 @@ https://bitbucket.org/theconstructcore/openai_ros.git
 https://github.com/nav74neet/ppo_gazebo_tf
 * DQN and DDQN is implemented from
 https://github.com/pythonlessons/Reinforcement_Learning/blob/master/02_CartPole-reinforcement-learning_DDQN/Cartpole_DDQN_TF2.py
-* Aliengo Gazebo is implemented from 
+* Aliengo Gazebo is obtained from 
 https://github.com/unitreerobotics/aliengo_ros and https://github.com/unitreerobotics/laikago_ros
 
 
@@ -91,9 +92,9 @@ OR
 go to /learning_ws and 
 * `./run_ppo_train.sh`
 
-Similarly to train with DDQN (double deep Q network) or DQN (you can change by  ddqn = true to false)
+Similarly to train with DDQN (double deep Q network)
 * `./run_ddqn_train.sh`
-* `./run_dqn_train.sh`
+
 ## How to Test
 Open first terminal;
 * `roscore`
@@ -125,14 +126,15 @@ Double DQN and PPO-Clip is trained around 260 episodes. Learning terminates afte
 ### Testing
 Double DQN and PPO-Clip is tested in 100 Episodes. PPO-CLip succes rate 94/100, Double DQN score 88/100
 ![](docs/testing_graphs.png?raw=true )
-* Testing Reward-Episode Graphs: (Left) PPO-Clip Agent, (Right)DDQN Agent"
+* Testing Reward-Episode Graphs: (Left) PPO-Clip Agent, (Right)DDQN Agent
 
 
 Robot is able to stand up and stay in stand up position
 ![](docs/testing_ppo.gif?raw=true)
 * PPO-Clip Testing
-Robot is able to stand up and  but directly reaches terminal state instead of staying in stand-up position 
 
+
+Robot is able to stand up and  but directly reaches terminal state instead of staying in stand-up position 
 ![](docs/testing_ddqn.gif?raw=true )
 * Double-DQN Testing
 
