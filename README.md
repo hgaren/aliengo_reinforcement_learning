@@ -112,29 +112,29 @@ change <arg name="gui" default="false"/> to true (we  make this false so that ou
 ## Results
 Gazebo and Rviz visulization of Desired Stand-up Behaviour
 ![](docs/gazebo_rviz_result.png?raw=true )
-"Snapshots of Standing-up Position: (Left) Gazebo Physic Simulator (Right) Rviz Sensor-Reward Visualization where green arrow indicate robot reached the goal pose , red cube indicate 1st reward, blue cube 2nd rewardand green cube 3th reward"
+* Snapshots of Standing-up Position: (Left) Gazebo Physic Simulator (Right) Rviz Sensor-Reward Visualization where green arrow indicate robot reached the goal pose , red cube indicate 1st reward, blue cube 2nd rewardand green cube 3th reward
 
 ### Training
 Double DQN and PPO-Clip is trained around 260 episodes. Learning terminates after 10 consecutive high reward.
 ![](docs/train_graphs.png?raw=true )
-"Training Reward-Episode Graphs: (Left) PPO-Clip Agent, (Right)DDQN Agent"
+* Training Reward-Episode Graphs: (Left) PPO-Clip Agent, (Right)DDQN Agent
 
 ![](docs/train_ppo.gif?raw=true )
-"PPO-Clip Training"
+* PPO-Clip Training"
 
 ### Testing
 Double DQN and PPO-Clip is tested in 100 Episodes. PPO-CLip succes rate 94/100, Double DQN score 88/100
 ![](docs/testing_graphs.png?raw=true )
-"Testing Reward-Episode Graphs: (Left) PPO-Clip Agent, (Right)DDQN Agent"
+* Testing Reward-Episode Graphs: (Left) PPO-Clip Agent, (Right)DDQN Agent"
 
 
 Robot is able to stand up and stay in stand up position
 ![](docs/testing_ppo.gif?raw=true)
- "PPO-Clip Testing"
+* PPO-Clip Testing
 Robot is able to stand up and  but directly reaches terminal state instead of staying in stand-up position 
 
 ![](docs/testing_ddqn.gif?raw=true )
-"Double-DQN Testing"
+* Double-DQN Testing
 
 
 
